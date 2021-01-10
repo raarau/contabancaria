@@ -34,11 +34,6 @@ public class PessoaResource {
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Pessoa> testeRequisicao() throws ParseException {
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		Date data = formato.parse("01/12/1990");
-		Date data2 = formato.parse("05/08/1963");
-		
-		
 
         Pessoa p1 = new Pessoa(1, "Rodrigo Araújo", "rodrigo.a.araujo@hotmail.com", "391.448.356-92", FormatarData("10/01/1990"));
         
