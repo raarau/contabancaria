@@ -13,20 +13,17 @@ import com.diggo.contabancaria.services.PessoaService;
 
 @RestController
 @RequestMapping(value="/pessoas")
-
-
 public class PessoaResource {
 	
 	@Autowired
 	private PessoaService service;
 	
-	@RequestMapping(value = "{/id}", method = RequestMethod.GET)
-	public ResponseEntity<?> Buscar(@PathVariable int id) {		
+	@RequestMapping(value="/{id}", method = RequestMethod.GET) 
+	public ResponseEntity<?> Buscar(@PathVariable Integer id) {		
 
 		Pessoa obj = service.BuscarPessoa(id);
 		
 		return ResponseEntity.ok().body(obj);
 		
 	}
-
 }

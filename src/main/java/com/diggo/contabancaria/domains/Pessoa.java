@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Pessoa implements Serializable {
 	
@@ -14,7 +15,7 @@ public class Pessoa implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private String cpf;
@@ -22,7 +23,7 @@ public class Pessoa implements Serializable {
 	
 	public Pessoa() {}
 
-	public Pessoa(int id, String nome, String email, String cpf, String dtNascimento) {
+	public Pessoa(Integer id, String nome, String email, String cpf, String dtNascimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -33,11 +34,11 @@ public class Pessoa implements Serializable {
 
 
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -90,8 +91,11 @@ public class Pessoa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Pessoa other = (Pessoa) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
+	}
 }
